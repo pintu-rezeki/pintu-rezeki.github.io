@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Revisi 1 Mei 2026 — Status Tracker</title>
+<meta name="description" content="Public progress tracker for Revisi 1 Mei 2026 campaign." />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+
+  <header class="border-b border-slate-200 pb-6">
+    <div class="flex items-center gap-3">
+      <span class="inline-block h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span class="text-xs font-medium uppercase tracking-wider text-slate-500">Live status</span>
+    </div>
+    <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+      Revisi 1 Mei 2026
+    </h1>
+    <p class="mt-2 text-base text-slate-600">
+      Tracker progress development untuk campaign revisi user testing 1 Mei 2026.
+    </p>
+    <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+      <div><span class="font-medium text-slate-700">Due date:</span> 18 May 2026</div>
+      <div><span class="font-medium text-slate-700">Last updated:</span> <time datetime="2026-05-06T11:30:39Z">06 May 2026 11:30 UTC</time></div>
+      <div><span class="font-medium text-slate-700">Auto-refresh:</span> setiap perubahan issue + harian 08:00 WIB</div>
+    </div>
+  </header>
+
+  <section class="mt-6">
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-lg font-semibold text-slate-900">Overall Progress</h2>
+      <div class="text-sm font-medium text-slate-700">2 / 37 closed · 5%</div>
+    </div>
+    <div class="mt-2 h-3 w-full overflow-hidden rounded-full bg-slate-200">
+      <div class="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 transition-all" style="width: 5%"></div>
+    </div>
+  </section>
+
+  <section class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+    
+<div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+  <div class="text-xs font-medium uppercase tracking-wide text-slate-500">Total</div>
+  <div class="mt-2 text-3xl font-bold text-slate-900">37</div>
+</div>
+
+    
+<div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+  <div class="text-xs font-medium uppercase tracking-wide text-slate-500">Done ✅</div>
+  <div class="mt-2 text-3xl font-bold text-emerald-600">2</div>
+</div>
+
+    
+<div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+  <div class="text-xs font-medium uppercase tracking-wide text-slate-500">Ready 🟢</div>
+  <div class="mt-2 text-3xl font-bold text-green-600">25</div>
+</div>
+
+    
+<div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+  <div class="text-xs font-medium uppercase tracking-wide text-slate-500">Blocked 🟡</div>
+  <div class="mt-2 text-3xl font-bold text-amber-600">4</div>
+</div>
+
+    
+<div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+  <div class="text-xs font-medium uppercase tracking-wide text-slate-500">Parking 🅿️</div>
+  <div class="mt-2 text-3xl font-bold text-slate-600">2</div>
+</div>
+
+    
+<div class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+  <div class="text-xs font-medium uppercase tracking-wide text-slate-500">PM Decision 🚩</div>
+  <div class="mt-2 text-3xl font-bold text-rose-600">4</div>
+</div>
+
+  </section>
+
+  
+<section class="mt-8">
+  <div class="flex items-baseline justify-between gap-4">
+    <h2 class="text-xl font-semibold text-slate-900">
+      <span class="inline-flex items-center rounded-md bg-emerald-50 px-2.5 py-0.5 text-base font-bold text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Track A</span>
+      <span class="ml-2 text-base font-normal text-slate-700">SO / Invoice / SO Payment + Member Dashboard</span>
+    </h2>
+    <div class="text-sm text-slate-600 font-medium whitespace-nowrap">
+      0 / 8 done · 0%
+    </div>
+  </div>
+  <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
+    <div class="h-full bg-emerald-500 transition-all" style="width: 0%"></div>
+  </div>
+  <div class="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-white">
+    <table class="min-w-full divide-y divide-slate-200">
+      <tbody>
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-046</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] Member Dashboard — Tab &quot;Histori Pembelian SO&quot; (cross-namespace)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-043</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Hide product type voucher &amp; others di UI (data tetap valid di backend)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-042</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE/DB] Service product di SO bisa input HPP / harga beli</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-041</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] Fix SO Payment selectbox — filter SO yang bisa dibayar (status &amp; payment_type)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-50 text-red-700 ring-red-500/20">Bug</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-018</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Verifikasi diskon invoice per-item (kemungkinan sudah benar — perlu konfirmasi PO)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-rose-100 text-rose-800 ring-rose-600/20">Needs PM Decision</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-009</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Munculkan kalkulasi discount di form Sales Order (per-row + footer total)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-007</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] SO cash → field TOP auto 0 + disabled</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-025</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Kasir Instan — input &quot;uang dibayar&quot; + display kembalian (UI only)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-yellow-100 text-yellow-800 ring-yellow-600/20">P2</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="mt-8">
+  <div class="flex items-baseline justify-between gap-4">
+    <h2 class="text-xl font-semibold text-slate-900">
+      <span class="inline-flex items-center rounded-md bg-emerald-50 px-2.5 py-0.5 text-base font-bold text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Track B</span>
+      <span class="ml-2 text-base font-normal text-slate-700">Aquaculture Lifecycle</span>
+    </h2>
+    <div class="text-sm text-slate-600 font-medium whitespace-nowrap">
+      0 / 8 done · 0%
+    </div>
+  </div>
+  <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
+    <div class="h-full bg-emerald-500 transition-all" style="width: 0%"></div>
+  </div>
+  <div class="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-white">
+    <table class="min-w-full divide-y divide-slate-200">
+      <tbody>
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-037</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] Net Redistribution — block jika ada aktivitas draft yang belum posted/cancelled</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-100 text-red-800 ring-red-600/20">P0</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-031</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] Panen Total — validasi qty == Actual Fish Alive (konsisten dengan modal Estimasi Pertumbuhan)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-100 text-red-800 ring-red-600/20">P0</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-023</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] Net Redistribution — validasi recount_quantity vs (stocking − mortality)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-100 text-red-800 ring-red-600/20">P0</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-015</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] Fix Pembibitan — stock dikurangi pakai BERAT (kg), bukan jumlah (ekor)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-100 text-red-800 ring-red-600/20">P0</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-50 text-red-700 ring-red-500/20">Bug</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-036</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE/BE] Tanggal aktivitas aquaculture editable saat draft (kecuali Pembibitan)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-027</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] Bulk Mortality + sortby kode jaring (mirror Bulk Feeding pattern)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-022</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Net Redistribution — tanggal redistribusi bisa custom (date picker)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-016</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Verify Survival Rate (SR) di FE pakai stocking_qty (BE sudah benar)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="mt-8">
+  <div class="flex items-baseline justify-between gap-4">
+    <h2 class="text-xl font-semibold text-slate-900">
+      <span class="inline-flex items-center rounded-md bg-emerald-50 px-2.5 py-0.5 text-base font-bold text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Track C</span>
+      <span class="ml-2 text-base font-normal text-slate-700">Aquaculture Cost</span>
+    </h2>
+    <div class="text-sm text-slate-600 font-medium whitespace-nowrap">
+      0 / 3 done · 0%
+    </div>
+  </div>
+  <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
+    <div class="h-full bg-emerald-500 transition-all" style="width: 0%"></div>
+  </div>
+  <div class="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-white">
+    <table class="min-w-full divide-y divide-slate-200">
+      <tbody>
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-039</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE/DB] BLOCKED — Overhead Cost: rombak struktur (bank → WIP)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-100 text-amber-800 ring-amber-600/20">Blocked</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-100 text-red-800 ring-red-600/20">P0</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-040</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] BLOCKED — Hapus create activity cost manual di single pond opening</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-100 text-amber-800 ring-amber-600/20">Blocked</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-020</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] Pemberian Pakan — hapus input harga, autofill dari purchase_price saat approve</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="mt-8">
+  <div class="flex items-baseline justify-between gap-4">
+    <h2 class="text-xl font-semibold text-slate-900">
+      <span class="inline-flex items-center rounded-md bg-emerald-50 px-2.5 py-0.5 text-base font-bold text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Track D</span>
+      <span class="ml-2 text-base font-normal text-slate-700">Reporting</span>
+    </h2>
+    <div class="text-sm text-slate-600 font-medium whitespace-nowrap">
+      0 / 2 done · 0%
+    </div>
+  </div>
+  <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
+    <div class="h-full bg-emerald-500 transition-all" style="width: 0%"></div>
+  </div>
+  <div class="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-white">
+    <table class="min-w-full divide-y divide-slate-200">
+      <tbody>
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-034</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE/BE] Export CSV+PDF — semua module reporting (Batch 1 + Batch 2)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-rose-100 text-rose-800 ring-rose-600/20">Needs PM Decision</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-028</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] Performance Reports — hapus group_by lines, ganti per petak (multi-record per petak)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-rose-100 text-rose-800 ring-rose-600/20">Needs PM Decision</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="mt-8">
+  <div class="flex items-baseline justify-between gap-4">
+    <h2 class="text-xl font-semibold text-slate-900">
+      <span class="inline-flex items-center rounded-md bg-emerald-50 px-2.5 py-0.5 text-base font-bold text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Track E</span>
+      <span class="ml-2 text-base font-normal text-slate-700">Journal / COA / Receive (sekuensial)</span>
+    </h2>
+    <div class="text-sm text-slate-600 font-medium whitespace-nowrap">
+      2 / 5 done · 40%
+    </div>
+  </div>
+  <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
+    <div class="h-full bg-emerald-500 transition-all" style="width: 40%"></div>
+  </div>
+  <div class="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-white">
+    <table class="min-w-full divide-y divide-slate-200">
+      <tbody>
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-044</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/DB] Aquaculture Journal Flow Refactor — Pemindahan WIP via Alokasi (clearing accounts)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-rose-100 text-rose-800 ring-rose-600/20">Needs PM Decision</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-100 text-red-800 ring-red-600/20">P0</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-014</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE] Fix Receive journal — pakai actual received qty, bukan PO qty</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-100 text-amber-800 ring-amber-600/20">Blocked</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-100 text-red-800 ring-red-600/20">P0</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-50 text-red-700 ring-red-500/20">Bug</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-004</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE] Fix tombol Preview Journal SO yang malah ngepost jurnal</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-100 text-red-800 ring-red-600/20">P0</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-50 text-red-700 ring-red-500/20">Bug</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-013</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-400 line-through">BE/DB] Pisahkan COA mapping: HPP Sales (cost_of_sales) ≠ HPP Usage (cost_of_usage)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-emerald-100 text-emerald-800 ring-emerald-600/20">Done</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-100 text-red-800 ring-red-600/20">P0</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 05 May 2026 · <span class='text-emerald-700'>Closed 05 May 2026</span></div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-045</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-400 line-through">BE/DB/FE] PM decision: stock opname tetap pakai cost_of_sales (HPP) + inline COA mapping description</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-emerald-100 text-emerald-800 ring-emerald-600/20">Done</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026 · <span class='text-emerald-700'>Closed 05 May 2026</span></div>
+      </div>
+    </div>
+  </td>
+</tr>
+</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="mt-8">
+  <div class="flex items-baseline justify-between gap-4">
+    <h2 class="text-xl font-semibold text-slate-900">
+      <span class="inline-flex items-center rounded-md bg-emerald-50 px-2.5 py-0.5 text-base font-bold text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Track F</span>
+      <span class="ml-2 text-base font-normal text-slate-700">Master &amp; Stock</span>
+    </h2>
+    <div class="text-sm text-slate-600 font-medium whitespace-nowrap">
+      0 / 9 done · 0%
+    </div>
+  </div>
+  <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
+    <div class="h-full bg-emerald-500 transition-all" style="width: 0%"></div>
+  </div>
+  <div class="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-white">
+    <table class="min-w-full divide-y divide-slate-200">
+      <tbody>
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-003</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE] Import ulang produk karamba — set stock per 30 April 2026</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-100 text-amber-800 ring-amber-600/20">Blocked</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-100 text-red-800 ring-red-600/20">P0</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-amber-50 text-amber-700 ring-amber-500/20">Task</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-047</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE/DB] Master SKU Prefix via master.settings (CRUD inline di product form)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-033</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Tombol create receiving di PO detail — tambah permission check</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-030</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] PO Payment — tanggal bayar editable (date picker)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-026</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Filter selectbox produk universal — stock ≥ 1, sellable, non-asset (semua flow stock-decrementing)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-019</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">BE/FE/DB] Bank Account flag — show_on_invoice (tampil/hidden di invoice)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-005</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Fix filter produk di Kartu Stock yang tidak muncul</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-red-50 text-red-700 ring-red-500/20">Bug</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-002</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE/BE] Stock Opname: tombol Load Semua Produk + sortby SKU</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-006</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Tampilkan kolom SKU di tabel Kartu Stock</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-100 text-blue-800 ring-blue-600/20">In Progress</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-yellow-100 text-yellow-800 ring-yellow-600/20">P2</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="mt-8">
+  <div class="flex items-baseline justify-between gap-4">
+    <h2 class="text-xl font-semibold text-slate-900">
+      <span class="inline-flex items-center rounded-md bg-emerald-50 px-2.5 py-0.5 text-base font-bold text-emerald-700 ring-1 ring-inset ring-emerald-600/20">Track G</span>
+      <span class="ml-2 text-base font-normal text-slate-700">Parking Lot — menunggu input PO</span>
+    </h2>
+    <div class="text-sm text-slate-600 font-medium whitespace-nowrap">
+      0 / 2 done · 0%
+    </div>
+  </div>
+  <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-slate-200">
+    <div class="h-full bg-emerald-500 transition-all" style="width: 0%"></div>
+  </div>
+  <div class="mt-4 overflow-hidden rounded-lg border border-slate-200 bg-white">
+    <table class="min-w-full divide-y divide-slate-200">
+      <tbody>
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-048</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Surat Jalan / Delivery Order PDF Template (sesuai format PO)</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-slate-100 text-slate-800 ring-slate-600/20">Parking Lot</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+
+<tr class="border-t border-slate-200 hover:bg-slate-50">
+  <td class="px-4 py-3 align-top">
+    <div class="flex items-start gap-3">
+      <span class="inline-flex shrink-0 items-center rounded-md bg-slate-100 px-2 py-0.5 text-xs font-mono font-semibold text-slate-700 ring-1 ring-inset ring-slate-500/10">R-021</span>
+      <div class="min-w-0">
+        <div class="text-sm font-medium text-slate-900">FE] Invoice template sesuai format kopkar</div>
+        <div class="mt-1 flex flex-wrap gap-1.5"><span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-slate-100 text-slate-800 ring-slate-600/20">Parking Lot</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-orange-100 text-orange-800 ring-orange-600/20">P1</span> <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset bg-blue-50 text-blue-700 ring-blue-500/20">Feature</span></div>
+        <div class="mt-1 text-xs text-slate-500">Updated 06 May 2026</div>
+      </div>
+    </div>
+  </td>
+</tr>
+</tbody>
+    </table>
+  </div>
+</section>
+
+
+  <footer class="mt-12 border-t border-slate-200 pt-6 text-center text-xs text-slate-500">
+    <p>
+      Auto-generated dari data live GitHub Issues di repository internal.
+      Sumber data privat, status di-mirror ke halaman ini untuk visibility stakeholder.
+    </p>
+    <p class="mt-1">
+      Generated <time datetime="2026-05-06T11:30:39Z">06 May 2026 11:30 UTC</time>.
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
