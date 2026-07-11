@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wings Git Flow — Panduan Alur Kerja Git</title>
+<meta name="description" content="Panduan alur kerja Git yang benar untuk project Wings Loyalty: branch model main/uat/dev, feature vs hotfix, aturan PR, dan anti-pattern yang harus dihindari." />
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --bg-elev: #ffffff;
+    --bg-code: #0f1420;
+    --text: #1c2333;
+    --text-dim: #5b667a;
+    --border: #e4e8ef;
+    --shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+    --radius: 16px;
+    --main: #e5484d;   /* production */
+    --uat: #f2960c;    /* stable / hotfix base */
+    --dev: #30a46c;    /* development */
+    --feat: #4c6ef5;   /* feature branch */
+    --bad: #e5484d;
+    --good: #30a46c;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b0e14;
+      --bg-elev: #12161f;
+      --bg-code: #0a0d14;
+      --text: #e6e9ef;
+      --text-dim: #97a1b4;
+      --border: #212736;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 30px rgba(0,0,0,.35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body {
+    margin: 0; font-family: var(--sans); color: var(--text); background: var(--bg);
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--feat); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* Nav */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: saturate(180%) blur(12px);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner { display: flex; align-items: center; gap: 16px; height: 60px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.01em; }
+  .brand .dot { width: 12px; height: 12px; border-radius: 50%;
+    background: conic-gradient(var(--main), var(--uat), var(--dev), var(--feat), var(--main)); }
+  .nav-links { margin-left: auto; display: flex; gap: 4px; flex-wrap: wrap; }
+  .nav-links a { color: var(--text-dim); font-size: 14px; font-weight: 500;
+    padding: 6px 10px; border-radius: 8px; }
+  .nav-links a:hover { color: var(--text); background: var(--bg-elev); text-decoration: none; }
+  @media (max-width: 720px){ .nav-links { display: none; } }
+
+  /* Hero */
+  .hero { padding: 72px 0 40px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600;
+    color: var(--text-dim); background: var(--bg-elev); border: 1px solid var(--border);
+    padding: 6px 12px; border-radius: 999px; }
+  .hero h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.05; letter-spacing: -.03em;
+    margin: 22px 0 14px; font-weight: 800; }
+  .hero h1 .grad { background: linear-gradient(90deg, var(--dev), var(--feat)); -webkit-background-clip: text;
+    background-clip: text; color: transparent; }
+  .hero p.lead { font-size: 19px; color: var(--text-dim); max-width: 640px; margin: 0; }
+
+  .golden { margin-top: 32px; display: flex; gap: 16px; align-items: flex-start;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--feat) 10%, var(--bg-elev)), var(--bg-elev));
+    border: 1px solid color-mix(in srgb, var(--feat) 35%, var(--border));
+    border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); }
+  .golden .ico { font-size: 26px; line-height: 1; }
+  .golden strong { display:block; font-size: 15px; letter-spacing: .02em; text-transform: uppercase;
+    color: var(--feat); margin-bottom: 4px; }
+  .golden .rule { font-size: 18px; font-weight: 600; }
+  .golden code { font-family: var(--mono); background: color-mix(in srgb, var(--feat) 14%, transparent);
+    color: var(--feat); padding: 1px 6px; border-radius: 6px; font-size: .92em; }
+
+  /* Sections */
+  section { padding: 48px 0; border-top: 1px solid var(--border); }
+  .sec-head { margin-bottom: 28px; }
+  .sec-head .k { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-dim); }
+  .sec-head h2 { font-size: clamp(24px, 4vw, 34px); letter-spacing: -.02em; margin: 6px 0 8px; font-weight: 800; }
+  .sec-head p { color: var(--text-dim); margin: 0; max-width: 680px; }
+
+  /* Branch cards */
+  .branches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 780px){ .branches { grid-template-columns: 1fr; } }
+  .bcard { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 22px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+  .bcard::before { content:""; position:absolute; inset:0 0 auto 0; height:4px; background: var(--accent); }
+  .bcard.main { --accent: var(--main); }
+  .bcard.uat  { --accent: var(--uat); }
+  .bcard.dev  { --accent: var(--dev); }
+  .bname { display:inline-flex; align-items:center; gap:8px; font-family: var(--mono); font-weight:700;
+    font-size: 17px; color: var(--accent); }
+  .bname .pill { font-family: var(--sans); font-size: 11px; font-weight:700; text-transform: uppercase;
+    letter-spacing:.04em; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent);
+    padding: 3px 8px; border-radius: 999px; }
+  .bcard h3 { margin: 12px 0 6px; font-size: 16px; }
+  .bcard p { margin: 0; color: var(--text-dim); font-size: 14.5px; }
+  .bcard .when { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--border); font-size: 13.5px; }
+  .bcard .when b { color: var(--accent); }
+
+  /* Promotion flow */
+  .promo { margin-top: 22px; display:flex; align-items:center; justify-content:center; gap: 8px; flex-wrap: wrap;
+    background: var(--bg-elev); border:1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .promo .node { font-family: var(--mono); font-weight: 700; padding: 8px 16px; border-radius: 10px; color:#fff; }
+  .promo .node.dev { background: var(--dev); } .promo .node.uat { background: var(--uat); } .promo .node.main { background: var(--main); }
+  .promo .arrow { color: var(--text-dim); font-weight: 700; font-size: 18px; }
+  .promo .cap { flex-basis:100%; text-align:center; color:var(--text-dim); font-size:13px; margin-top:6px; }
+
+  /* Scenario steps */
+  .scenario { background: var(--bg-elev); border:1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow); overflow: hidden; }
+  .scenario + .scenario { margin-top: 20px; }
+  .scenario .sc-top { display:flex; align-items:center; gap:14px; padding: 20px 24px; border-bottom:1px solid var(--border);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 9%, var(--bg-elev)), var(--bg-elev)); }
+  .scenario.feat { --accent: var(--feat); } .scenario.hotfix { --accent: var(--uat); }
+  .sc-badge { font-size: 22px; }
+  .sc-top h3 { margin:0; font-size: 19px; }
+  .sc-top .base { margin-left:auto; font-size:13px; color:var(--text-dim); }
+  .sc-top .base code { font-family:var(--mono); color:var(--accent); font-weight:700; }
+  .steps { list-style:none; margin:0; padding: 8px 0; counter-reset: step; }
+  .steps > li { display:grid; grid-template-columns: 34px 1fr; gap: 4px 16px; padding: 16px 24px; align-items:start; }
+  .steps > li::before { counter-increment: step; content: counter(step); grid-row: 1 / span 2;
+    width: 28px; height: 28px; border-radius: 50%; display:grid; place-items:center; font-weight:700; font-size:14px;
+    color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+  .steps .st-title { font-weight: 650; }
+  .steps .st-desc { color: var(--text-dim); font-size: 14px; }
+  .steps li + li { border-top: 1px solid var(--border); }
+
+  /* Code block with copy */
+  .code { position: relative; margin: 10px 0 2px; grid-column: 2; }
+  pre { margin:0; background: var(--bg-code); color:#d7deea; border-radius: 12px; padding: 14px 16px;
+    overflow-x:auto; font-family: var(--mono); font-size: 13px; line-height: 1.7; border:1px solid rgba(255,255,255,.06); }
+  pre .c { color:#7d8aa3; } pre .p { color:#6ee7b7; } pre .k { color:#93c5fd; } pre .s { color:#fbbf24; }
+  .copy { position:absolute; top:8px; right:8px; font: 600 12px var(--sans); color:#cbd5e1;
+    background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:8px;
+    padding:5px 10px; cursor:pointer; transition: all .15s; }
+  .copy:hover { background: rgba(255,255,255,.16); color:#fff; }
+  .copy.done { background: var(--good); border-color: var(--good); color:#fff; }
+
+  /* Rules grid */
+  .rules { display:grid; grid-template-columns: repeat(2,1fr); gap:16px; }
+  @media (max-width:720px){ .rules{ grid-template-columns:1fr; } }
+  .rule-card { background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--radius);
+    padding:20px; box-shadow:var(--shadow); display:flex; gap:14px; }
+  .rule-card .ico { font-size:22px; line-height:1; }
+  .rule-card h4 { margin:0 0 4px; font-size:15.5px; }
+  .rule-card p { margin:0; color:var(--text-dim); font-size:14px; }
+  .rule-card code { font-family:var(--mono); font-size:.88em; background:color-mix(in srgb,var(--feat) 12%,transparent);
+    color:var(--feat); padding:1px 5px; border-radius:5px; }
+
+  /* Anti-patterns */
+  .antis { display:grid; grid-template-columns: repeat(2,1fr); gap:16px; }
+  @media (max-width:760px){ .antis{ grid-template-columns:1fr; } }
+  .anti { border:1px solid color-mix(in srgb, var(--bad) 30%, var(--border)); border-radius:var(--radius);
+    background: color-mix(in srgb, var(--bad) 5%, var(--bg-elev)); padding:20px; box-shadow:var(--shadow); }
+  .anti .bad { display:flex; gap:10px; align-items:flex-start; font-weight:650; }
+  .anti .bad .x { color:var(--bad); font-size:18px; line-height:1.3; }
+  .anti .good { display:flex; gap:10px; align-items:flex-start; margin-top:12px; padding-top:12px;
+    border-top:1px dashed color-mix(in srgb, var(--bad) 25%, var(--border)); color:var(--text-dim); font-size:14.5px; }
+  .anti .good .v { color:var(--good); font-size:16px; line-height:1.4; }
+  .anti code { font-family:var(--mono); font-size:.9em; background:rgba(128,128,128,.14); padding:1px 5px; border-radius:5px; }
+
+  /* Cheat sheet */
+  .cheats { display:grid; grid-template-columns: repeat(2,1fr); gap:16px; }
+  @media (max-width:720px){ .cheats{ grid-template-columns:1fr; } }
+  .cheat { background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); }
+  .cheat h4 { margin:0 0 14px; font-size:16px; display:flex; align-items:center; gap:8px; }
+  .cheat ul { list-style:none; margin:0; padding:0; }
+  .cheat li { display:flex; gap:10px; padding:7px 0; font-size:14.5px; border-bottom:1px solid var(--border); }
+  .cheat li:last-child { border-bottom:0; }
+  .cheat li .ck { color:var(--good); font-weight:800; }
+  .cheat li code { font-family:var(--mono); font-size:.86em; background:color-mix(in srgb,var(--feat) 12%,transparent); color:var(--feat); padding:1px 5px; border-radius:5px; }
+
+  footer { border-top:1px solid var(--border); padding: 34px 0 60px; color:var(--text-dim); font-size:14px; }
+  footer .fx { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="dot"></span> Wings Git Flow</div>
+    <nav class="nav-links">
+      <a href="#branches">Branch</a>
+      <a href="#feature">Fitur</a>
+      <a href="#hotfix">Hotfix</a>
+      <a href="#rules">Aturan PR</a>
+      <a href="#anti">Jangan begini</a>
+      <a href="#cheat">Cheat-sheet</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="eyebrow">📘 Panduan tim · Wings Loyalty</span>
+    <h1>Alur kerja <span class="grad">Git</span> yang benar<br/>di project Wings.</h1>
+    <p class="lead">Biar konsisten antar semua orang: setiap perubahan lewat jalur yang sama —
+      branch sendiri, PR, lalu squash-merge. Tidak ada lagi commit langsung ke branch bersama.</p>
+
+    <div class="golden">
+      <span class="ico">⭐</span>
+      <div>
+        <strong>Golden rule</strong>
+        <div class="rule">Setiap perubahan → <code>feat/</code> branch → <b>Pull Request</b> → <b>squash-merge</b>.
+          <br/>Tidak pernah <code>commit</code> atau <code>git merge</code> langsung ke <code>main</code> / <code>uat</code> / <code>dev</code> — sekecil apa pun.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRANCH MODEL -->
+  <section id="branches">
+    <div class="sec-head">
+      <div class="k">Fondasi</div>
+      <h2>Model branch</h2>
+      <p>Tiga branch bersama (shared) yang tidak boleh disentuh langsung. Selalu <b>pastikan base branch</b> sebelum <code>git checkout -b</code> dan sebelum membuka PR.</p>
+    </div>
+    <div class="branches">
+      <div class="bcard main">
+        <div class="bname"><span>main</span> <span class="pill">Production</span></div>
+        <h3>Yang sudah live di production</h3>
+        <p>Kode yang berjalan di user. Paling stabil, paling dijaga.</p>
+        <div class="when"><b>Jangan pernah</b> buka PR fitur langsung ke <code>main</code>.</div>
+      </div>
+      <div class="bcard uat">
+        <div class="bname"><span>uat</span> <span class="pill">Stable test</span></div>
+        <h3>Testing stabil + base untuk fix</h3>
+        <p>Tempat QA/UAT. Fresh clone default ke sini. Basis untuk memperbaiki issue yang muncul di <code>main</code>/<code>uat</code>.</p>
+        <div class="when">Fix issue <code>main</code>/<code>uat</code> → branch <b>dari uat</b>, PR <b>ke uat</b>.</div>
+      </div>
+      <div class="bcard dev">
+        <div class="bname"><span>dev</span> <span class="pill">Development</span></div>
+        <h3>Fitur & pengembangan baru</h3>
+        <p>Tempat fitur baru berkumpul sebelum dipromosikan. Bisa berisi hal yang belum tentu naik.</p>
+        <div class="when">Fitur baru → branch <b>dari dev</b>, PR <b>ke dev</b>.</div>
+      </div>
+    </div>
+    <div class="promo">
+      <span class="node dev">dev</span><span class="arrow">→</span>
+      <span class="node uat">uat</span><span class="arrow">→</span>
+      <span class="node main">main</span>
+      <div class="cap">Arah promosi: pekerjaan naik bertahap <code style="font-family:var(--mono)">dev → uat → main</code> (lewat PR, bukan local merge).</div>
+    </div>
+  </section>
+
+  <!-- SCENARIO A: FEATURE -->
+  <section id="feature">
+    <div class="sec-head">
+      <div class="k">Skenario A</div>
+      <h2>Mengerjakan fitur baru</h2>
+      <p>Titik awal: branch <b>dari <code>dev</code></b>. Titik akhir: PR ke <code>dev</code> yang di-squash-merge.</p>
+    </div>
+    <div class="scenario feat">
+      <div class="sc-top">
+        <span class="sc-badge">✨</span>
+        <h3>Feature flow</h3>
+        <span class="base">base: <code>dev</code></span>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="st-title">Mulai dari <code>dev</code> terbaru</div>
+          <div class="st-desc">Pastikan base benar dan up-to-date sebelum bikin branch.</div>
+          <div class="code"><button class="copy">Copy</button><pre><span class="c"># dari dalam repo service (mis. apps/backend)</span>
+git checkout dev
+git pull origin dev</pre></div>
+        </li>
+        <li>
+          <div class="st-title">Buat <code>feat/</code> branch</div>
+          <div class="st-desc">Nama deskriptif, selalu berprefiks <code>feat/</code>.</div>
+          <div class="code"><button class="copy">Copy</button><pre>git checkout -b feat/nama-fitur-singkat</pre></div>
+        </li>
+        <li>
+          <div class="st-title">Kerjakan &amp; commit di branch itu</div>
+          <div class="st-desc">Commit sesering perlu — hanya di <code>feat/</code> branch, bukan di <code>dev</code>.</div>
+          <div class="code"><button class="copy">Copy</button><pre>git add -A
+git commit -m <span class="s">"feat: tambah fitur X"</span></pre></div>
+        </li>
+        <li>
+          <div class="st-title">Push &amp; buka Pull Request ke <code>dev</code></div>
+          <div class="st-desc">Rebase dulu ke <code>dev</code> terbaru bila sudah tertinggal, supaya squash bersih.</div>
+          <div class="code"><button class="copy">Copy</button><pre>git push -u origin feat/nama-fitur-singkat
+gh pr create --base dev --title <span class="s">"feat: fitur X"</span></pre></div>
+        </li>
+        <li>
+          <div class="st-title">Review → <b>squash-merge</b> lewat GitHub</div>
+          <div class="st-desc">Setelah di-approve. Satu PR = satu commit rapi di <code>dev</code>.</div>
+          <div class="code"><button class="copy">Copy</button><pre>gh pr merge --squash --delete-branch</pre></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SCENARIO B: HOTFIX -->
+  <section id="hotfix">
+    <div class="sec-head">
+      <div class="k">Skenario B</div>
+      <h2>Memperbaiki issue di <code>main</code> / <code>uat</code></h2>
+      <p>Titik awal: branch <b>dari <code>uat</code></b> (bukan <code>dev</code>). Titik akhir: PR ke <code>uat</code>, lalu dipromosikan.</p>
+    </div>
+    <div class="scenario hotfix">
+      <div class="sc-top">
+        <span class="sc-badge">🛠️</span>
+        <h3>Fix / hotfix flow</h3>
+        <span class="base">base: <code>uat</code></span>
+      </div>
+      <ol class="steps">
+        <li>
+          <div class="st-title">Mulai dari <code>uat</code> terbaru</div>
+          <div class="st-desc">Fix untuk issue di production/UAT selalu bercabang dari <code>uat</code>.</div>
+          <div class="code"><button class="copy">Copy</button><pre>git checkout uat
+git pull origin uat</pre></div>
+        </li>
+        <li>
+          <div class="st-title">Buat <code>feat/</code> branch untuk fix</div>
+          <div class="st-desc">Tetap prefiks <code>feat/</code> (atau kesepakatan tim), branch tetap dari <code>uat</code>.</div>
+          <div class="code"><button class="copy">Copy</button><pre>git checkout -b feat/fix-nama-issue</pre></div>
+        </li>
+        <li>
+          <div class="st-title">Perbaiki, commit, push</div>
+          <div class="st-desc">Hanya di branch fix — jangan langsung di <code>uat</code>.</div>
+          <div class="code"><button class="copy">Copy</button><pre>git commit -am <span class="s">"fix: perbaiki issue Y"</span>
+git push -u origin feat/fix-nama-issue</pre></div>
+        </li>
+        <li>
+          <div class="st-title">PR ke <code>uat</code> → squash-merge</div>
+          <div class="st-desc">Setelah masuk <code>uat</code> dan terverifikasi, promosikan naik ke <code>main</code> lewat PR promosi.</div>
+          <div class="code"><button class="copy">Copy</button><pre>gh pr create --base uat --title <span class="s">"fix: issue Y"</span>
+gh pr merge --squash --delete-branch</pre></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section id="rules">
+    <div class="sec-head">
+      <div class="k">Aturan main</div>
+      <h2>4 aturan PR yang wajib</h2>
+      <p>Ini yang menjaga history tetap rapi dan tim tetap sinkron.</p>
+    </div>
+    <div class="rules">
+      <div class="rule-card"><span class="ico">🔀</span><div>
+        <h4>Hanya lewat merged PR</h4>
+        <p>Kode masuk ke shared branch <b>hanya</b> lewat PR yang di-merge di GitHub — bukan <code>git push origin dev</code> atau <code>git merge</code> lokal.</p>
+      </div></div>
+      <div class="rule-card"><span class="ico">🥞</span><div>
+        <h4>Squash-merge</h4>
+        <p>Pakai opsi <b>Squash</b> (<code>gh pr merge --squash</code>). Satu PR jadi satu commit → history linear, mudah dibaca &amp; di-revert.</p>
+      </div></div>
+      <div class="rule-card"><span class="ico">🎯</span><div>
+        <h4>Pastikan base branch</h4>
+        <p>Sebelum <code>checkout -b</code> dan sebelum PR: fitur → <code>dev</code>, fix → <code>uat</code>. Salah base = kerja bisa naik terlalu cepat.</p>
+      </div></div>
+      <div class="rule-card"><span class="ico">♻️</span><div>
+        <h4>Rebase sebelum merge</h4>
+        <p>Kalau base sudah maju, <code>git rebase origin/&lt;base&gt;</code> dulu supaya squash apply bersih tanpa konflik menumpuk.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ANTI-PATTERNS -->
+  <section id="anti">
+    <div class="sec-head">
+      <div class="k">Hindari</div>
+      <h2>❌ Jangan begini</h2>
+      <p>Pola-pola yang bikin flow tim jadi tidak konsisten. Tiap masalah ada padanan yang benarnya.</p>
+    </div>
+    <div class="antis">
+      <div class="anti">
+        <div class="bad"><span class="x">✕</span><span>Commit langsung ke <code>dev</code> / <code>uat</code> / <code>main</code> (walau cuma satu baris).</span></div>
+        <div class="good"><span class="v">✓</span><span>Selalu bikin <code>feat/</code> branch dulu, lalu PR — sekecil apa pun perubahannya.</span></div>
+      </div>
+      <div class="anti">
+        <div class="bad"><span class="x">✕</span><span>Menggabung dengan <code>git merge</code> lokal lalu <code>git push</code> ke shared branch.</span></div>
+        <div class="good"><span class="v">✓</span><span>Integrasi <b>hanya</b> lewat PR di GitHub (<code>gh pr merge --squash</code>). Tidak ada local merge ke shared branch.</span></div>
+      </div>
+      <div class="anti">
+        <div class="bad"><span class="x">✕</span><span>Merge commit / <code>Merge branch 'uat'…</code> yang mengotori history.</span></div>
+        <div class="good"><span class="v">✓</span><span>Squash-merge → satu commit rapi per PR, history tetap linear.</span></div>
+      </div>
+      <div class="anti">
+        <div class="bad"><span class="x">✕</span><span>Buka PR fitur langsung ke <code>main</code>, atau branch fix dari <code>dev</code>.</span></div>
+        <div class="good"><span class="v">✓</span><span>Fitur → dari/ke <code>dev</code>. Fix issue <code>main</code>/<code>uat</code> → dari/ke <code>uat</code>. Promosi bertahap.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHEAT SHEET -->
+  <section id="cheat">
+    <div class="sec-head">
+      <div class="k">Pengingat harian</div>
+      <h2>Cheat-sheet</h2>
+      <p>Scan cepat sebelum mulai dan sebelum buka PR.</p>
+    </div>
+    <div class="cheats">
+      <div class="cheat">
+        <h4>🚦 Sebelum mulai kerja</h4>
+        <ul>
+          <li><span class="ck">✓</span><span>Aku di repo service yang benar (<code>apps/&lt;repo&gt;</code>)?</span></li>
+          <li><span class="ck">✓</span><span>Base branch benar? Fitur = <code>dev</code>, fix = <code>uat</code>.</span></li>
+          <li><span class="ck">✓</span><span><code>git pull</code> dulu supaya base terbaru.</span></li>
+          <li><span class="ck">✓</span><span>Bikin <code>feat/&lt;nama&gt;</code> — bukan kerja di shared branch.</span></li>
+        </ul>
+      </div>
+      <div class="cheat">
+        <h4>🚀 Sebelum buka / merge PR</h4>
+        <ul>
+          <li><span class="ck">✓</span><span>PR target base yang benar (<code>dev</code>/<code>uat</code>, bukan <code>main</code>)?</span></li>
+          <li><span class="ck">✓</span><span>Sudah <code>rebase</code> ke base terbaru bila tertinggal?</span></li>
+          <li><span class="ck">✓</span><span>Merge pakai <b>Squash</b>, bukan merge commit / rebase-merge.</span></li>
+          <li><span class="ck">✓</span><span>Branch dihapus setelah merge (<code>--delete-branch</code>).</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap fx">
+    <div>Sumber kebenaran: <b>CLAUDE.md</b> → <em>Service Repo Branching</em> &amp; <em>Engineering Standards</em> di repo <code style="font-family:var(--mono)">pintu-rezeki/wings</code>.</div>
+    <div>Wings Loyalty · Git Flow Guide</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = btn.parentElement.querySelector('pre');
+      var text = pre.innerText.replace(/ /g, ' ');
+      navigator.clipboard.writeText(text).then(function () {
+        var old = btn.textContent; btn.textContent = 'Copied ✓'; btn.classList.add('done');
+        setTimeout(function () { btn.textContent = old; btn.classList.remove('done'); }, 1400);
+      });
+    });
+  });
+</script>
+</body>
+</html>
